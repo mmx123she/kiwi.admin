@@ -31,9 +31,11 @@ package at.newmedialab.lmf.admin.core;
 
 import at.newmedialab.lmf.admin.client.AbstractConfiguration;
 import at.newmedialab.lmf.admin.client.Admin;
-import com.smartgwt.client.util.SC;
+import com.smartgwt.client.types.Side;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.tab.Tab;
+import com.smartgwt.client.widgets.tab.TabSet;
 
 import java.util.Arrays;
 
@@ -43,8 +45,6 @@ import java.util.Arrays;
  * Author: Sebastian Schaffert
  */
 public class CoreConfiguration extends AbstractConfiguration {
-
-    private Admin parent;
 
     public CoreConfiguration(Admin parent) {
         super(parent);
@@ -81,10 +81,34 @@ public class CoreConfiguration extends AbstractConfiguration {
             getParent().registerAction(this, action, new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
-                    SC.say(action + " clicked");
+                    showTabSet(action);
                 }
             });
         }
+    }
+
+
+    private void showTabSet(String selected) {
+        TabSet tabSet = new TabSet();
+        tabSet.setTabBarPosition(Side.TOP);
+
+        Tab overview = new Tab("General");
+        overview.setID("General");
+        overview.setPane(new GeneralConfigPanel(getParent()));
+        tabSet.addTab(overview);
+
+        Tab database = new Tab("Database");
+        database.setID("Database");
+        tabSet.addTab(database);
+
+        Tab logging = new Tab("Logging");
+        logging.setID("Logging");
+        tabSet.addTab(logging);
+
+        tabSet.selectTab(selected);
+
+
+        getParent().setContentPanel(tabSet);
     }
 
 

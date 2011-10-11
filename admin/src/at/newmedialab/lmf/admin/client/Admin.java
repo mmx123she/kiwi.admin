@@ -162,6 +162,8 @@ public class Admin implements EntryPoint {
 
     private void createOverviewPanel() {
         TabSet tabSet = new TabSet();
+        tabSet.setTabBarPosition(Side.TOP);
+
 
         Tab overview = new Tab("Overview");
         overview.setPane(new PathMappingAdminPanel());
@@ -197,13 +199,17 @@ public class Admin implements EntryPoint {
             mainLayout.removeMember(contentCanvas);
         }
         contentCanvas = canvas;
-        contentCanvas.setTabBarPosition(Side.TOP);
         contentCanvas.setWidth("*");
         contentCanvas.setMinHeight(600);
         contentCanvas.setCanDragResize(true);
         contentCanvas.setResizeFrom("L");
 
         mainLayout.addMember(contentCanvas);
+    }
+
+
+    public String getServerUrl() {
+        return SERVER_URL;
     }
 
 }

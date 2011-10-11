@@ -43,8 +43,9 @@
     <inherits name='org.restlet.Restlet'/>
     <inherits name='org.restlet.JSON'/>
     <inherits name="com.smartgwt.SmartGwt"/>
+    <!--
     <inherits name="com.smartclient.theme.treefrog.TreeFrog"/>
-
+    -->
 
     <!--
     <script src="sc/modules/ISC_Core.js"/>
@@ -58,6 +59,8 @@
     <entry-point class='at.newmedialab.lmf.admin.client.Admin'/>
 
     <!-- for quicker compilation -->
+    <!--
     <set-property name="user.agent" value="safari"/>
+    -->
 
 </module>
