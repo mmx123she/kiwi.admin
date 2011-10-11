@@ -4,25 +4,12 @@
     <defaultAnt bundledAnt="true" />
   </component>
   <component name="ArtifactManager">
-    <artifact type="exploded-war" build-on-make="true" name="fsadmin:war exploded">
-      <output-path>$PROJECT_DIR$/out/artifacts/fsadmin_war_exploded</output-path>
+    <artifact type="exploded-war" build-on-make="true" name="admin:GWT">
+      <output-path>$PROJECT_DIR$/out/artifacts/admin_GWT</output-path>
       <root id="root">
-        <element id="javaee-facet-resources" facet="fsadmin/web/Web" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="fsadmin" />
-          </element>
-          <element id="directory" name="lib">
-            <element id="library" level="project" name="AppEngine API" />
-          </element>
-        </element>
-        <element id="artifact" artifact-name="fsadmin:GWT" />
-      </root>
-    </artifact>
-    <artifact build-on-make="true" name="fsadmin:GWT">
-      <output-path>$PROJECT_DIR$/out/artifacts/fsadmin_GWT</output-path>
-      <root id="root">
-        <element id="gwt-compiler-output" facet="fsadmin/gwt/GWT" />
+        <element id="javaee-facet-resources" facet="admin/web/Web" />
+        <element id="gwt-compiler-output" facet="admin/gwt/GWT" />
+        <element id="gwt-compiler-output" facet="search/gwt/GWT" />
       </root>
     </artifact>
   </component>
@@ -52,6 +39,29 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
+  </component>
+  <component name="FacetAutodetectingManager">
+    <autodetection-disabled>
+      <facet-type id="gwt">
+        <modules>
+          <module name="search">
+            <files>
+              <file url="file://$PROJECT_DIR$/search/src/at/newmedialab/lmf/admin/Admin.gwt.xml" />
+              <file url="file://$PROJECT_DIR$/search/src/at/newmedialab/lmf/admin/search/SearchAdmin.gwt.xml" />
+            </files>
+          </module>
+        </modules>
+      </facet-type>
+      <facet-type id="web">
+        <modules>
+          <module name="search">
+            <files>
+              <file url="file://$PROJECT_DIR$/search/web/WEB-INF/web.xml" />
+            </files>
+          </module>
+        </modules>
+      </facet-type>
+    </autodetection-disabled>
   </component>
   <component name="GradleUISettings2">
     <setting name="root" />
@@ -197,7 +207,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/fsadmin/fsadmin.iml" filepath="$PROJECT_DIR$/fsadmin/fsadmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
     </modules>
   </component>
   <component name="ProjectResources">
@@ -211,23 +221,24 @@
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
+    <library name="AppEngine API">
+      <CLASSES>
+        <root url="file://$USER_HOME$/apps/appengine-java-sdk-1.5.4/lib/user" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$USER_HOME$/apps/appengine-java-sdk-1.5.4/lib/user" recursive="false" />
+    </library>
     <library name="gwt-user">
       <CLASSES>
-        <root url="jar://$USER_HOME$/apps/gwt-2.4.0/gwt-user.jar!/" />
-        <root url="jar://$USER_HOME$/apps/smartgwt-2.5/smartgwt-skins.jar!/" />
-        <root url="jar://$USER_HOME$/apps/smartgwt-2.5/smartgwt.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.ext.xml.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.ext.json.jar!/" />
+        <root url="file://$PROJECT_DIR$/lib" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$USER_HOME$/apps/gwt-2.4.0/gwt-user.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.ext.xml.jar!/" />
-        <root url="jar://$USER_HOME$/apps/restlet-gwt-2.0.10/lib/org.restlet.ext.json.jar!/" />
-        <root url="jar://$USER_HOME$/apps/smartgwt-2.5/smartgwt.jar!/" />
+        <root url="file://$PROJECT_DIR$/lib" />
       </SOURCES>
+      <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" type="SOURCES" />
     </library>
   </component>
 </project>
