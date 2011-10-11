@@ -32,10 +32,7 @@ package at.newmedialab.lmf.admin.core;
 import at.newmedialab.lmf.admin.client.Admin;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
-import com.smartgwt.client.types.Autofit;
-import com.smartgwt.client.types.ListGridEditEvent;
-import com.smartgwt.client.types.RowEndEditAction;
-import com.smartgwt.client.types.SortDirection;
+import com.smartgwt.client.types.*;
 import com.smartgwt.client.widgets.IButton;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
@@ -72,6 +69,8 @@ public class GeneralConfigPanel extends VLayout {
     public void initialiseConfigurationGrid() {
         setMembersMargin(20);
         setMargin(5);
+        setAutoHeight();
+        setOverflow(Overflow.VISIBLE);
 
         configurationGrid = new ListGrid();
         configurationGrid.setWidth100();
@@ -148,6 +147,7 @@ public class GeneralConfigPanel extends VLayout {
                     }
 
                     configurationGrid.setData(records.toArray(new ListGridRecord[0]));
+                    configurationGrid.draw();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
