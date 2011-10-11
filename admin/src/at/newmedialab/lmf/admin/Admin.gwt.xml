@@ -3,12 +3,18 @@
 <module>
 
     <source path='client'/>
+    <source path='core'/>
     <source path='search'/>
+
+    <!--
+    <inherits name="com.google.gwt.logging.Logging"/>
+    -->
 
     <inherits name='com.google.gwt.user.User'/>
     <inherits name='org.restlet.Restlet'/>
     <inherits name='org.restlet.JSON'/>
     <inherits name="com.smartgwt.SmartGwt"/>
+    <inherits name="com.smartclient.theme.treefrog.TreeFrog"/>
 
 
     <!--
@@ -25,4 +31,5 @@
 
     <!-- for quicker compilation -->
     <set-property name="user.agent" value="safari"/>
+
 </module>
