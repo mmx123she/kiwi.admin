@@ -39,7 +39,7 @@ import com.smartgwt.client.widgets.events.ClickHandler;
 import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.grid.ListGridField;
 import com.smartgwt.client.widgets.grid.ListGridRecord;
-import com.smartgwt.client.widgets.layout.VLayout;
+import com.smartgwt.client.widgets.layout.VStack;
 import org.restlet.client.Request;
 import org.restlet.client.Response;
 import org.restlet.client.Uniform;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
  * <p/>
  * Author: Sebastian Schaffert
  */
-public class GeneralConfigPanel extends VLayout {
+public class GeneralConfigPanel extends VStack {
 
     private ListGrid configurationGrid;
 
@@ -72,6 +72,7 @@ public class GeneralConfigPanel extends VLayout {
         setAutoHeight();
         setOverflow(Overflow.VISIBLE);
 
+
         configurationGrid = new ListGrid();
         configurationGrid.setWidth100();
         //configurationGrid.setHeight100();
@@ -81,6 +82,9 @@ public class GeneralConfigPanel extends VLayout {
         configurationGrid.setSortField("key");
         configurationGrid.setSortDirection(SortDirection.ASCENDING);
         configurationGrid.setAutoFitData(Autofit.VERTICAL);
+        configurationGrid.setOverflow(Overflow.VISIBLE);
+        configurationGrid.setBodyOverflow(Overflow.VISIBLE);
+        configurationGrid.setLeaveScrollbarGap(false);
 
         final ListGridField fieldKey = new ListGridField("key", "Configuration Key", 250);
         fieldKey.setRequired(true);

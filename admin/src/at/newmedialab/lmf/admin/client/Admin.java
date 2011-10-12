@@ -34,15 +34,13 @@ import at.newmedialab.lmf.admin.search.PathMappingAdminPanel;
 import at.newmedialab.lmf.admin.search.SearchConfiguration;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.smartgwt.client.types.Overflow;
 import com.smartgwt.client.types.Side;
 import com.smartgwt.client.types.VisibilityMode;
 import com.smartgwt.client.widgets.HTMLFlow;
 import com.smartgwt.client.widgets.Label;
 import com.smartgwt.client.widgets.events.ClickHandler;
-import com.smartgwt.client.widgets.layout.HLayout;
-import com.smartgwt.client.widgets.layout.SectionStack;
-import com.smartgwt.client.widgets.layout.SectionStackSection;
-import com.smartgwt.client.widgets.layout.VLayout;
+import com.smartgwt.client.widgets.layout.*;
 import com.smartgwt.client.widgets.tab.Tab;
 import com.smartgwt.client.widgets.tab.TabSet;
 
@@ -60,7 +58,7 @@ public class Admin implements EntryPoint {
     public static final String SERVER_URL = "http://localhost:8080/LMF/";
 
 
-    private VLayout bodyLayout;
+    private VStack bodyLayout;
     private HLayout mainLayout;
 
 
@@ -93,10 +91,13 @@ public class Admin implements EntryPoint {
         rootPanel.clear();
 
 
-        bodyLayout = new VLayout();
+        bodyLayout = new VStack();
         bodyLayout.setWidth100();
-        bodyLayout.setHeight100();
+        bodyLayout.setAutoHeight();
+        bodyLayout.setMinHeight(800);
+        bodyLayout.setOverflow(Overflow.VISIBLE);
         bodyLayout.setMembersMargin(5);
+        bodyLayout.setMargin(8);
         rootPanel.add(bodyLayout);
 
         createTitleBar();
@@ -107,8 +108,11 @@ public class Admin implements EntryPoint {
 //        mainLayout.setOverflow(Overflow.HIDDEN);
 //        mainLayout.setCanDragResize(true);
 //        mainLayout.setResizeFrom("L", "R");
-        mainLayout.setHeight("*");
+//        mainLayout.setHeight("*");
+        mainLayout.setOverflow(Overflow.VISIBLE);
         mainLayout.setWidth100();
+        mainLayout.setHeight(630);
+//        mainLayout.setAutoHeight();
 
         bodyLayout.addMember(mainLayout);
 
@@ -203,6 +207,8 @@ public class Admin implements EntryPoint {
         contentCanvas.setMinHeight(600);
         contentCanvas.setCanDragResize(true);
         contentCanvas.setResizeFrom("L");
+        contentCanvas.setOverflow(Overflow.VISIBLE);
+        contentCanvas.setPaneContainerOverflow(Overflow.VISIBLE);
 
         mainLayout.addMember(contentCanvas);
     }
